@@ -1,7 +1,22 @@
-.PHONY: check
-check:
-	poetry run ruff check
+# ----------------------------------------------------------------------------
+# Makefile. Use it to create custom complex commands
+# ============================================================================
 
+
+# ----------------------------------------------------------------------------
+# Ruff linting
+# ============================================================================
+.PHONY: lintcheck
+lintcheck:
+	poetry run ruff check
+.PHONY: lintfix
+lintfix:
+	poetry run ruff check --fix
+
+
+# ----------------------------------------------------------------------------
+# Git hooks
+# ============================================================================
 .PHONY: install-pre-commit
 install-pre-commit:
 	poetry run pre-commit uninstall ; poetry run pre-commit install
@@ -10,10 +25,18 @@ install-pre-commit:
 pre-commit:
 	poetry run pre-commit run --all-files
 
+
+# ----------------------------------------------------------------------------
+# Python poetry
+# ============================================================================
 .PHONY: install
 install:
 	poetry install
 
+
+# ----------------------------------------------------------------------------
+# Django
+# ============================================================================
 .PHONY: migrate
 migrate:
 	poetry run python -m src.manage migrate
@@ -30,5 +53,23 @@ runserver:
 superuser:
 	poetry run python -m src.manage createsuperuser
 
+
+# ----------------------------------------------------------------------------
+# Docker
+# ============================================================================
+.PHONY: up-dev
+up-dev:
+	docker-compose build
+	docker-compose -f docker-compose.dev.yml up --force-recreate db
+
+.PHONY: up-production
+up-production:
+	docker-compose build
+	docker-compose -f docker-compose.yml up
+
+
+# ----------------------------------------------------------------------------
+# General
+# ============================================================================
 .PHONY: update
-update: install migrate ;
+update: install migrate install-pre-commit ;

@@ -1,2 +1,26 @@
+"""Template for local development settings."""
 DEBUG = True
-SECRET_KEY = "django-insecure-=0+0dm4%z+1l2$auy7!awzllm(h0av02@2bf77n7o)hkj3q9d#"
+SECRET_KEY = "some_secret_key"
+
+IN_DOCKER = False
+
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "postgres",
+        "USER": "postgres",
+        "PASSWORD": "postgres",
+        "HOST": "localhost",
+        "PORT": "5432",
+        "ATOMIC_REQUESTS": True,
+        "CONN_MAX_AGE": 600,
+    }
+}
+
+LOGGING['formatters']['colored'] = {  # type: ignore
+    "()": "colorlog.ColoredFormatter",
+    "format": "%(log_color)s%(asctime)s %(levelname)s %(name)s %(name)s %(bold_white)s%(message)s",
+}
+LOGGING["loggers"]["src"]["level"] = "DEBUG"  # type: ignore
+LOGGING["loggers"]["console"]["level"] = "DEBUG"  # type: ignore
+LOGGING["loggers"]["console"]["formatters"] = "colored"  # type: ignore
