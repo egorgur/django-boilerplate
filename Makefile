@@ -1,5 +1,5 @@
 # ----------------------------------------------------------------------------
-# Makefile. Use it to create custom complex commands
+# Makefile Commands.
 # ============================================================================
 
 
@@ -17,8 +17,8 @@ lintfix:
 # ----------------------------------------------------------------------------
 # Git hooks
 # ============================================================================
-.PHONY: install-pre-commit
-install-pre-commit:
+.PHONY: i-pre-commit
+i-pre-commit:
 	poetry run pre-commit uninstall ; poetry run pre-commit install
 
 .PHONY: pre-commit

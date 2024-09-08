@@ -14,16 +14,18 @@ RUN set -xe \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
+
+# No other than src/ and local/ directopries will be copied inside the container
 COPY ["poetry.lock", "pyproject.toml", "./"]
 RUN poetry install --no-root
 
-COPY ["README.md", "Makefile", "./"]
+COPY ["Makefile", "./"]
 COPY src src
 COPY local local
 
 EXPOSE 8000
 
-COPY ./scripts/entrypoint.sh /entrypoint.sh
+COPY ./bin/entrypoint.sh /entrypoint.sh
 RUN chmod a+x /entrypoint.sh
 
 ENTRYPOINT ["/entrypoint.sh"]

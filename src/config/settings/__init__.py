@@ -20,9 +20,9 @@ if not os.path.isabs(LOCAL_SETTINGS_PATH):
 # Order of the settings loading
 include(
     "base.py",
-    "logging.py",
     "app_specific.py",
     optional(LOCAL_SETTINGS_PATH),
     "environment.py",
     "docker.py",
+    "logging.py",
 )
