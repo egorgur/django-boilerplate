@@ -42,6 +42,13 @@ jobs:
         if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
         run: poetry install --no-interaction --no-root
       #----------------------------------------------
+      #                   Linting
+      #----------------------------------------------
+      - name: Lint with ruff
+        run: |
+          make lintfix
+
+      #----------------------------------------------
       #                   Run tests
       #----------------------------------------------
       - name: Run tests
