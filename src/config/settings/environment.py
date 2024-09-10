@@ -14,4 +14,4 @@ IN_DOCKER and it equals True.
 
 # globals() is a dictionary of global variables
 # ENVIRONMENT_PREFIX gets imported from settings.__int__.py by split_settings
-deep_update(globals(), get_settings_from_environment(ENVIRONMENT_PREFIX))  # type: ignore
+deep_update(globals(), get_settings_from_environment(ENVIRONMENT_PREFIX))  # type: ignore # noqa: F821

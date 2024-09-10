@@ -69,7 +69,8 @@ pytest-django = "^4.9.0"
 model-bakery = "^1.19.5"
 
 [tool.pytest.ini_options]
-DJANGO_SETTINGS_MODUSE = "src.config.settings"
+pythonpath = "."
+DJANGO_SETTINGS_MODULE = "src.config.settings"
 django_find_project = false
 python_files = "test_*.py"
 testpaths = ["src"]
@@ -96,7 +97,14 @@ ignore = [
 "__init__.py" = [
     # https://docs.astral.sh/ruff/rules/unused-import
     "F401",
+    # https://docs.astral.sh/ruff/rules/undefined-local-with-import-star/
+    "F403",
 ]
+"conftest.py" = [
+    # https://docs.astral.sh/ruff/rules/undefined-local-with-import-star/
+    "F403",
+]
+
 [tool.ruff.lint.flake8-pytest-style]
 fixture-parentheses = false
 parametrize-names-type = "list"
