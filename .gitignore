@@ -32,6 +32,10 @@ MANIFEST
 *.manifest
 *.spec
 
+# Linters
+.ruff_cache/
+
+
 # Installer logs
 pip-log.txt
 pip-delete-this-directory.txt

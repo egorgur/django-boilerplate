@@ -1,11 +1,8 @@
 LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,
-    "formatters": {
-        "standard": {
-            "format": "%(asctime)s %(levelname)s %(name)s %(message)s"
-        }
-    },
+    "formatters": {"standard": {"format": "%(asctime)s - %(levelname)s - %(name)s %(message)s"}},
+    "filters": {},
     "handlers": {
         "console": {
             "level": "INFO",
@@ -16,12 +13,13 @@ LOGGING = {
     },
     "loggers": {
         logger_name: {
-            "level": "WARNING",
+            "level": "INFO",
             "propagate": True,
-        } for logger_name in ("django", "django.request", "django.db.backends", "django.template", "src", "console")
+        }
+        for logger_name in ("django", "django.request", "django.db.backends", "django.template", "src")
     },
     "root": {
         "level": "DEBUG",
         "handlers": ["console"],
-    }
+    },
 }

@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "django-boilerplate"
 version = "0.1.0"
-description = ""
+description = "Django boiler plate for varios projects"
 authors = ["egorgurtyakin@gmail.com"]
 license = "MIT"
 readme = "README.md"
@@ -10,6 +10,9 @@ readme = "README.md"
 python = "^3.12"
 
 # Main framework
+# -------------------------------------------------
+# Use packages from https://djangopackages.org/ !!! Do not reinvent the wheel!
+# -------------------------------------------------
 # https://www.djangoproject.com/
 django = "^5.1.1"
 # Filter querysets dynamically
@@ -31,10 +34,6 @@ djangorestframework = "^3.15.2"
 # Secure token-based auth for drf
 # https://jazzband.github.io/django-rest-knox/,
 django-rest-knox = "^5.0.1"
-
-# -------------------------------------------------
-# Use packages from https://djangopackages.org/ !!! Do not reinvent the wheel!
-# -------------------------------------------------
 
 
 pyyaml = "^6.0.2"
