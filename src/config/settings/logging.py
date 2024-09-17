@@ -6,6 +6,7 @@ LOGGING = {
             "format": "%(asctime)s %(levelname)s %(name)s %(message)s"
         }
     },
+    "filters": {},
     "handlers": {
         "console": {
             "level": "INFO",
@@ -14,7 +15,7 @@ LOGGING = {
             "filters": [],
         },
         "file": {
-            "level": "WARNING",
+            "level": "INFO",
             "class": "logging.FileHandler",
             "filename": "logs/debug.log",
             "encoding": "utf-8",
@@ -24,10 +25,10 @@ LOGGING = {
     },
     "loggers": {
         logger_name: {
-            "level": "WARNING",
+            "level": "INFO",
             "propagate": True,
             "handlers": ["file"],
-        } for logger_name in ("django", "django.request", "django.db.backends", "django.template", "src", "console")
+        } for logger_name in ("django", "django.request", "django.db.backends", "django.template", "src")
     },
     "root": {
         "level": "DEBUG",
