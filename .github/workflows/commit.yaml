@@ -54,6 +54,7 @@ jobs:
       - name: Run tests
         run: |
           make test
+      # Environment variables set the
         env:
           DJANGO_PROJECT_DATABASES: '{"default":{"HOST":"db"}}'
           DJANGO_PROJECT_LOCAL_SETTINGS_PATH: './src/config/settings/templates/settings.github.py'

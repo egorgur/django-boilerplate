@@ -5,11 +5,8 @@ LOGGING = {
     "filters": {},
     "handlers": {
         "console": {
-            "level": "INFO",
-            "class": "logging.StreamHandler",
-            "formatter": "standard",
-            "filters": [],
-        }
+            "class": "rich.logging.RichHandler",
+        },
     },
     "loggers": {
         logger_name: {
@@ -19,7 +16,7 @@ LOGGING = {
         for logger_name in ("django", "django.request", "django.db.backends", "django.template", "src")
     },
     "root": {
-        "level": "DEBUG",
         "handlers": ["console"],
+        "level": "INFO",
     },
 }

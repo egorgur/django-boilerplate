@@ -1,7 +1,8 @@
 """Template for production settings."""
+
 DEBUG = False
 # Generate new secret key with the production_data.py script
-SECRET_KEY = 'secret_key'
+SECRET_KEY = "secret_key"
 
 IN_DOCKER = True
 
