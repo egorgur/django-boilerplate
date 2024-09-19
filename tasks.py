@@ -1,4 +1,5 @@
 import os
+import shutil
 
 from invoke import task
 
@@ -13,7 +14,7 @@ def copy_settings(c):
 
     if not os.path.exists("local"):
         os.makedirs("local")
-    # TODO! Rework the cmd commands with os.system() or other os. methods
-    c.run("cp src/config/settings/templates/settings.devsetup.py ./local/settings.dev.py")
-    c.run("cp src/config/settings/templates/settings.testing.py ./local/settings.testing.py")
-    c.run("cp src/config/settings/templates/settings.prod.py ./local/settings.prod.py")
+    shutil.copy("src/config/settings/templates/settings.dev.py", "./local/settings.dev.py")
+    shutil.copy("src/config/settings/templates/settings.testing.py", "./local/settings.testing.py")
+    shutil.copy("src/config/settings/templates/settings.prod.py", "./local/settings.prod.py")
+    print("Copied settings templates to 'local' folder!")

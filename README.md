@@ -1,11 +1,18 @@
-# django-boilerplate
+# Django-boilerplate
 
-Project setup
+### System Dependencies
+
+- [`Python >=3.12`](https://www.python.org/downloads)
+- [`Poetry`](https://python-poetry.org/docs/)
+
+## Project setup
 
 ```bash
-mkdir -p local
-cp src/config/settings/templates/settings.devsetup.py ./local/settings.dev.py
-cp src/config/settings/templates/settings.testing.py ./local/settings.testing.py
-cp src/config/settings/templates/settings.prod.py ./local/settings.prod.py
+# Setup venv and install dependencies with poetry
+make setupenv
 ```
-This will copy the template settings to `local` directory.
+
+```bash
+# Copy the template settings to `local` directory.
+invoke copysettigns
+```
