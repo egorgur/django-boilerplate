@@ -83,8 +83,20 @@ django-debug-toolbar = "^4.4.6"
 
 
 [tool.poetry.group.local.dependencies]
+# Rich is a Python library for writing rich text (with color and style) to the terminal,
+# and for displaying advanced content such as tables, markdown, and syntax highlighted code.
+# https://rich.readthedocs.io/en/stable/introduction.html
 pre-commit = "^3.8.0"
+# Invoke is a Python (2.7 and 3.4+) task execution tool & library,
+# drawing inspiration from various sources to arrive at a powerful & clean feature set.
+# http://www.pyinvoke.org/
 invoke = "^2.2.0"
+# For project managing and make-sync with boilerplate
+# Github action `sync_django_boilerplate` using `cruft` to check against django boilerplate and send a PR,
+# but not all changes will be applied automatically because of conflicts.
+# In this case, we need to switch to this PR branch and use cruft to sync with boilerplate manually
+# https://cruft.github.io/cruft/
+cruft = "^2.15.0"
 
 
 [tool.poetry.group.test.dependencies]
@@ -127,6 +139,9 @@ pythonpath = "." # without this, pytest cannot find the src module
 python_files = "test_*.py"
 testpaths = ["src"]
 #filterwarnings = "ignore::DeprecationWarning:^(?!node\\.).*:" if deprecation warns are annoying
+
+
+
 
 
 
