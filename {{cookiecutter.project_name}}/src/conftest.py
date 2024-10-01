@@ -1,6 +1,6 @@
 import os
 
-from src.general.tests.fixtures import *
+from src.general.tests.fixtures import *  # noqa: F403 because we import all fixtures
 
 """
 Import fixtures here to use them in tests.

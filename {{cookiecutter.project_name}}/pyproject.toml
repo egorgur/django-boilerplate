@@ -1,6 +1,6 @@
 [tool.poetry]
 package-mode = false
-name = "Django boilerplate"
+name = "{{ cookiecutter.project_slug }}"
 version = "0.1.0"
 description = "Django boiler plate for varios projects"
 authors = ["egorgurtyakin@gmail.com"]
@@ -157,12 +157,6 @@ build-backend = "poetry.core.masonry.api"
 
 
 [tool.ruff]
-# UNFORTUNATELY COULD NOT ACTUALLY LINT WITH PRE-COMMITS
-# SEMI-FIX "nested alternate groups are not allowed" bug
-# https://github.com/astral-sh/ruff/issues/7959
-extend-exclude = [
-    "[{][{]cookiecutter.project_name[}][}]",
-    ]
 line-length = 119
 indent-width = 4
 target-version = "py312"
@@ -221,3 +215,11 @@ quote-style = "double"
 indent-style = "space"
 skip-magic-trailing-comma = false
 line-ending = "auto"
+exclude = [
+    # Disabling for admin since it's just configs and black/ruff format one item
+    # tuples as one line
+    "**/admin.py",
+    "**/views.py",
+    "**/admin/*",
+    "**/views/*",
+]

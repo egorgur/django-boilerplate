@@ -4,7 +4,7 @@ services:
     image: postgres
     restart: unless-stopped
     ports:
-      - "5432:5432"
+      - "5433:5432" # IMPORTANT! Map the standart postgres 5432 port to 5433 to allow using as a test database. See settings.dev.py
     environment:
       POSTGRES_DB: postgres
       POSTGRES_USER: postgres

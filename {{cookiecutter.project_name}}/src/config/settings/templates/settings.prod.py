@@ -6,7 +6,7 @@ SECRET_KEY = "secret_key"
 
 IN_DOCKER = True
 
-# Database settings must be same in docker-compose.yml
+# Database settings must be same in docker-compose.yaml
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",

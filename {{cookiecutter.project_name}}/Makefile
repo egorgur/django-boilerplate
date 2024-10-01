@@ -72,15 +72,15 @@ superuser:
 # ----------------------------------------------------------------------------
 # Docker
 # ============================================================================
-.PHONY: up-dev
-up-dev:
-	docker-compose build
-	docker-compose -f docker-compose.dev.yml up --force-recreate db
+.PHONY: up-db
+up-db: # Up only postgres containered database
+	docker-compose -f docker-compose.dev.yaml up --force-recreate db
+# Run `make runserver` in separate console
 
-.PHONY: up-production
-up-production:
+.PHONY: up-prod
+up-prod:
 	docker-compose build
-	docker-compose -f docker-compose.yml up
+	docker-compose -f docker-compose.yaml up
 
 
 # ----------------------------------------------------------------------------

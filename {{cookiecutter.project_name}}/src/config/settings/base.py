@@ -44,19 +44,8 @@ TEMPLATES = [
 WSGI_APPLICATION = "src.config.wsgi.application"
 
 # Attention!
-# DATABASE SETTINGS MUST BE SET IN local/settings.dev.py || local/settings.prod.py
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "postgres",
-        "USER": "postgres",
-        "PASSWORD": "postgre5eeeee3xf",
-        "HOST": "localhost",
-        "PORT": "5432",
-        "ATOMIC_REQUESTS": True,
-        "CONN_MAX_AGE": 600,
-    }
-}
+# DATABASE SETTINGS MUST BE SET IN local/settings.dev.py && local/settings.prod.py && local/settings.test.py
+DATABASE = {}
 
 AUTH_PASSWORD_VALIDATORS = [
     {
