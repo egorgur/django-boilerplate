@@ -1,5 +1,6 @@
 import logging
 import logging.config
+import rich
 # use this - logging.basicConfig(level=logging.DEBUG), while writing your own logs to catch all the levels
 
 class InfoFilter(logging.Filter):
@@ -19,7 +20,7 @@ LOGGING = {
     "handlers": {
         "console": {
             "level": "INFO",
-            "class": "logging.StreamHandler",
+            "class": "rich.logging.RichHandler",
             "formatter": "standard",
             "filters": []
 
