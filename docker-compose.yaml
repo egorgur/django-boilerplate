@@ -1,5 +1,4 @@
 services:
-
   app:
     build: .
     restart: unless-stopped
@@ -10,7 +9,8 @@ services:
     environment:
       DJANGO_PROJECT_DATABASES: '{"default":{"HOST":"db"}}'
       DJANGO_PROJECT_LOCAL_SETTINGS_PATH: 'local/settings.prod.py'
-
+    volumes:
+      - logs:/opt/project/logs/  
 
   db:
     image: postgres
@@ -27,3 +27,4 @@ services:
 volumes:
   postgresql-data:
     driver: local
+  logs:  

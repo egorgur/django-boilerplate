@@ -1,5 +1,5 @@
 [tool.poetry]
-package-mode = false
+#package-mode = false
 name = "django-boilerplate"
 version = "0.1.0"
 description = "Django boiler plate for varios projects"
