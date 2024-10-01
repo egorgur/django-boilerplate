@@ -37,4 +37,4 @@ include(
 if not is_testing():
     assert SECRET_KEY is not NotImplemented  # type: ignore # noqa: F821
     # Check if database settings are not set by default
-    assert DATABASES.get("default") is not None # type: ignore # noqa: F821
+    assert DATABASES.get("default") is not None  # type: ignore # noqa: F821

@@ -11,8 +11,8 @@ DATABASES = {
         "NAME": "postgres",
         "USER": "postgres",
         "PASSWORD": "postgres",
-        "HOST": "localhost", # Localhost to use access docker container
-        "PORT": "5433", # IMPORTANT! Use different for devDatabase
+        "HOST": "localhost",  # Localhost to use access docker container
+        "PORT": "5433",  # IMPORTANT! Use different for devDatabase
         "ATOMIC_REQUESTS": True,
         "CONN_MAX_AGE": 600,
     }

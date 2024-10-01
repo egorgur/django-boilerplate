@@ -34,7 +34,8 @@ test:
 # ============================================================================
 .PHONY: i-pre-commit
 i-pre-commit:
-	poetry run pre-commit uninstall ; poetry run pre-commit install
+	poetry run pre-commit uninstall
+	poetry run pre-commit install
 
 .PHONY: pre-commit
 pre-commit:
@@ -73,7 +74,7 @@ superuser:
 # Docker
 # ============================================================================
 .PHONY: up-db
-up-db: ## up local new database if new 
+up-db: ## up local new database if new
 	docker-compose -f docker-compose.dev.yaml up --force-recreate devdb
 
 .PHONY: up-prod
@@ -86,4 +87,4 @@ up-prod:
 # General
 # ============================================================================
 .PHONY: update
-update: install migrate install-pre-commit ;
+update: install i-pre-commit ;

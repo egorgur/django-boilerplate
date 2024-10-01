@@ -43,9 +43,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "src.config.wsgi.application"
 
-# !!ATTENTION!! 
-# DATABASE SETTINGS are set in local/ settings folders. 
-DATABASES = {} 
+# !!ATTENTION!!
+# DATABASE SETTINGS are set in local/ settings folders.
+DATABASES = {}
 
 AUTH_PASSWORD_VALIDATORS = [
     {
