@@ -2,4 +2,5 @@
 
 DEBUG = True
 
-LOGGING["loggers"]["src"]["level"] = "DEBUG"  # type: ignore # noqa: F821
+# !!IMPORTANT!!
+# Database setting for testing are unset by default

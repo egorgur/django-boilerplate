@@ -11,11 +11,9 @@ DATABASES = {
         "NAME": "postgres",
         "USER": "postgres",
         "PASSWORD": "postgres",
-        "HOST": "db",
-        "PORT": "5432",
+        "HOST": "localhost", # Localhost to use access docker container
+        "PORT": "5433", # IMPORTANT! Use different for devDatabase
         "ATOMIC_REQUESTS": True,
         "CONN_MAX_AGE": 600,
     }
 }
-
-LOGGING["loggers"]["src"]["level"] = "DEBUG"  # type: ignore # noqa: F821
