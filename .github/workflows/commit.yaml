@@ -1,5 +1,10 @@
 name: Quality Assurance
 on: [ pull_request, push, workflow_call ]
+
+defaults:
+  run:
+    working-directory: "{{cookiecutter.project_name}}"
+
 jobs:
   quality-assurance:
     name: Quality Assurance
