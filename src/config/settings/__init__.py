@@ -26,7 +26,8 @@ if not os.path.isabs(LOCAL_SETTINGS_PATH):
 include(
     "logging.py",
     "base.py",
-    "app_specific.py",
+    "rest_framework.py",
+    "specific.py",
     optional(LOCAL_SETTINGS_PATH),
     "environment.py",
     "docker.py",
@@ -36,5 +37,5 @@ include(
 # The SECRET_KEY for testing will be set later as a pytest autouse fixture in general/tests/fixtures/secret_key.
 if not is_testing():
     assert SECRET_KEY is not NotImplemented  # type: ignore # noqa: F821
-    # Check if database settings are not set by default
+    # Check if database settings are not set by settings.file.py
     assert DATABASES.get("default") is not None  # type: ignore # noqa: F821

@@ -1,7 +1,7 @@
 DEBUG = False
 SECRET_KEY = NotImplemented
 
-ALLOWED_HOSTS: list[str] = []
+ALLOWED_HOSTS: list[str] = ["localhost", "127.0.0.1"]
 CSRF_TRUSTED_ORIGIN: list[str] = []
 
 INSTALLED_APPS = [
@@ -11,6 +11,10 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    # Third party
+    #   "some_third_party",
+    # Apps
+    #   "src.apps.someapp.apps.SomeappConfig"
 ]
 
 MIDDLEWARE = [

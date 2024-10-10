@@ -9,17 +9,22 @@
 setupenv:
 	python scripts/setup_environment.py
 
+.PHONY: copysettings
+copysettings:
+	poetry run invoke copysettings
 
 
 # ----------------------------------------------------------------------------
 # Ruff linting
 # ============================================================================
-.PHONY: lintcheck
-lintcheck:
-	poetry run ruff check
-.PHONY: lintfix
-lintfix:
+.PHONY: lint
+lint:
 	poetry run ruff check --fix
+	poetry run ruff format
+.PHONY: lintf
+lintf:
+	poetry run ruff format
+
 
 # ----------------------------------------------------------------------------
 # Pytest
