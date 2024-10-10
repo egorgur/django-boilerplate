@@ -1,14 +1,6 @@
-import logging
-import logging.config
+"""Logging configuration."""
+
 import os
-
-# use this - logging.basicConfig(level=logging.DEBUG), while writing your own logs to catch all the levels
-
-
-class InfoFilter(logging.Filter):
-    def filter(self, record):
-        return record.levelno == logging.INFO
-
 
 logs_folder = "logs"
 log_file = os.path.join(logs_folder, "debug.log")
@@ -23,6 +15,7 @@ LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,
     "formatters": {"standard": {"format": "%(asctime)s %(levelname)s %(name)s %(message)s"}},
+    "filters": {},
     "handlers": {
         "console": {"level": "INFO", "class": "rich.logging.RichHandler", "formatter": "standard", "filters": []},
         "file": {
@@ -31,7 +24,7 @@ LOGGING = {
             "filename": "logs/debug.log",
             "encoding": "utf-8",
             "formatter": "standard",
-            "filters": ["info_filter"],
+            "filters": [],
         },
     },
     "loggers": {
@@ -41,7 +34,6 @@ LOGGING = {
         }
         for logger_name in ("django", "django.request", "django.db.backends", "django.template", "src", "console")
     },
-    "filters": {"info_filter": {"()": "src.config.settings.InfoFilter"}},
     "root": {
         "handlers": ["console", "file"],
         "level": "INFO",
