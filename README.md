@@ -1,4 +1,4 @@
-# django-boilerplate
+# Django-boilerplate
 
 ### System Dependencies
 

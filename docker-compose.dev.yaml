@@ -1,10 +1,10 @@
 services:
 
-  db:
+  devdb:
     image: postgres
     restart: unless-stopped
     ports:
-      - "5432:5432"
+      - "5433:5432" # IMPORTANT! The port is 5433 to allow uncontainerized django use postgres container
     environment:
       POSTGRES_DB: postgres
       POSTGRES_USER: postgres
