@@ -1,7 +1,7 @@
 DEBUG = False
 SECRET_KEY = NotImplemented
 
-ALLOWED_HOSTS: list[str] = []
+ALLOWED_HOSTS: list[str] = ["localhost", "127.0.0.1"]
 CSRF_TRUSTED_ORIGIN: list[str] = []
 
 INSTALLED_APPS = [
@@ -11,6 +11,10 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    # Third party
+    #   "some_third_party",
+    # Apps
+    #   "src.apps.someapp.apps.SomeappConfig"
 ]
 
 MIDDLEWARE = [
@@ -43,20 +47,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "src.config.wsgi.application"
 
-# Attention!
-# DATABASE SETTINGS MUST BE SET IN local/settings.dev.py || local/settings.prod.py
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "postgres",
-        "USER": "postgres",
-        "PASSWORD": "postgre5eeeee3xf",
-        "HOST": "localhost",
-        "PORT": "5432",
-        "ATOMIC_REQUESTS": True,
-        "CONN_MAX_AGE": 600,
-    }
-}
+# !!ATTENTION!!
+# DATABASE SETTINGS are set in local/ settings folders.
+DATABASES = {}
 
 AUTH_PASSWORD_VALIDATORS = [
     {

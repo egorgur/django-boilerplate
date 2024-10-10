@@ -2,16 +2,30 @@
 # Makefile Commands.
 # ============================================================================
 
+# ----------------------------------------------------------------------------
+# Project
+# ============================================================================
+.PHONY: setupenv
+setupenv:
+	python scripts/setup_environment.py
+
+.PHONY: copysettings
+copysettings:
+	poetry run invoke copysettings
+
+
 
 # ----------------------------------------------------------------------------
 # Ruff linting
 # ============================================================================
-.PHONY: lintcheck
-lintcheck:
-	poetry run ruff check
-.PHONY: lintfix
-lintfix:
+.PHONY: lint
+lint:
 	poetry run ruff check --fix
+	poetry run ruff format
+.PHONY: lintf
+lintf:
+	poetry run ruff format
+
 
 # ----------------------------------------------------------------------------
 # Pytest
@@ -26,7 +40,8 @@ test:
 # ============================================================================
 .PHONY: i-pre-commit
 i-pre-commit:
-	poetry run pre-commit uninstall ; poetry run pre-commit install
+	poetry run pre-commit uninstall
+	poetry run pre-commit install
 
 .PHONY: pre-commit
 pre-commit:
@@ -64,19 +79,18 @@ superuser:
 # ----------------------------------------------------------------------------
 # Docker
 # ============================================================================
-.PHONY: up-dev
-up-dev:
-	docker-compose build
-	docker-compose -f docker-compose.dev.yml up --force-recreate db
+.PHONY: up-db
+up-db: ## up local new database if new
+	docker-compose -f docker-compose.dev.yaml up --force-recreate devdb
 
-.PHONY: up-production
-up-production:
+.PHONY: up-prod
+up-prod:
 	docker-compose build
-	docker-compose -f docker-compose.yml up
+	docker-compose -f docker-compose.yaml up
 
 
 # ----------------------------------------------------------------------------
 # General
 # ============================================================================
 .PHONY: update
-update: install migrate install-pre-commit ;
+update: install i-pre-commit ;
